@@ -1,0 +1,613 @@
+/*Zilla slab*/
+
+@import url("https://fonts.googleapis.com/css2?family=Courgette&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Gloock&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&family=Yanone+Kaffeesatz:wght@200..700&family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
+
+/*Garamond*/
+@import url("https://fonts.googleapis.com/css2?family=Courgette&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Gloock&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&family=Yanone+Kaffeesatz:wght@200..700&family=Zilla+Slab:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  /* Font size */
+
+  --font-small: 8px;
+  --font-medium-small: 12px;
+  --font-medium: 18px;
+  --font-medium-large: 22px;
+  --font-large: 28px;
+  --font-xlarge: 48px;
+  --font-xxlarge: 68px;
+
+  /**Font family**/
+  --font-family-ZillaSlab: "Zilla Slab", sans-serif;
+  --font-family-Garamond: "Garamond", sans-serif;
+
+  /** Font weight**/
+  --font-weight-small: 300;
+  --font-weight-medium: 600;
+  --font-weight-large: 800;
+  --font-weight-xlarge: 900;
+
+  /**Colors**/
+  --color-primary: #2d4354;
+  --color-secondary: #73766a;
+  --color-titles: #fed7a5;
+  --color-buttons: #9e6752;
+  --color-buttons-secondary: #f4f1de;
+  --color-buttons-secondary-active: #e1e6d1 /**Border radius*/
+    --border-radius-small: 5px;
+  --border-raidius-medium: 8px;
+  --border-radius-large: 16px;
+  --border-circle: 100%;
+
+  /*Espacio*/
+
+  --gap-small: 10px;
+  --gap-medium: 16px;
+  --gap-large: 26px;
+  --gap-xlarge: 30px;
+}
+
+/*** menu icon */
+
+.fa-bars {
+  color: var(--color-buttons-secondary);
+  font-size: 28px;
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  /* z-index: 1; */
+  cursor: pointer;
+  transition: top 0.3s;
+}
+
+.fa-bars-scroll {
+  color: var(--color-primary);
+}
+
+.fa-x {
+  color: var(--color-buttons-secondary);
+  cursor: pointer;
+}
+
+/* Header/ Menu nav */
+header {
+  width: 100%;
+  height: 30em;
+  background-image: url("./img/baltic1.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding: 0px 0px;
+}
+
+header nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+header nav .box-logo p {
+  padding: 1em;
+  font-family: var(--font-family-ZillaSlab);
+  font-size: var(--font-xlarge);
+  color: var(--color-titles);
+  font-weight: 900;
+}
+
+header nav .box-menu.sidebar {
+  width: 200px;
+  height: 100vh;
+  background-color: var(--color-secondary);
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 2000;
+  transition: 0.3s;
+  padding-top: 22px;
+  padding-left: 25px;
+  display: none;
+}
+
+header nav .box-menu.sidebar.activate {
+  display: block;
+}
+
+.box-menu.activate-box-menu {
+  transition: ease-in-out 0.5s;
+}
+
+.box-menu ul {
+  list-style: none;
+  margin-top: 25px;
+  padding-left: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.box-menu ul li .btn-box-menu {
+  text-decoration: none;
+  font-family: var(--font-family-ZillaSlab);
+  color: var(--color-buttons-secondary);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-medium);
+  cursor: pointer;
+}
+
+.box-menu ul li .btn-box-menu:hover {
+  background-color: var(--color-buttons-secondary);
+  color: var(--color-buttons);
+  padding: 4px;
+  border-radius: var(--border-radius-small);
+}
+
+/**Saber Relojes - Tipos de relojes */
+
+#section-estilos {
+  width: 100%;
+}
+
+.header-section {
+  width: 100%;
+  display: grid;
+  grid-template-rows: repeat(2, 1fr);
+  align-items: center;
+  padding: 10px 32px;
+  transition: ease-in 0.5s;
+  margin: 0 0 32px 0;
+}
+/**/
+/* .header-section { */
+/*   border-bottom: 1px solid var(--color-secondary); */
+/* } */
+
+.header-section h1 {
+  text-align: center;
+  font-family: var(--font-family-Garamond);
+  color: var(--color-primary);
+  font-weight: var(--font-weight-medium);
+}
+.header-section h2,
+.header-section-gallery h3 {
+  text-align: center;
+  font-family: var(--font-family-Garamond);
+  color: var(--color-primary);
+  font-weight: var(--font-weight-large);
+  padding-top: 20px;
+}
+
+.header-section p {
+  font-family: var(--font-family-ZillaSlab);
+  font-size: var(--font-medium);
+  color: var(--color-secondary);
+  font-weight: var(--font-weight-small);
+  text-align: justify;
+  padding-top: 12px;
+}
+
+.header-section p span {
+  color: var(--color-primary);
+  font-weight: bold;
+  font-family: var(--font-family-ZillaSlab);
+}
+
+/** Section estilos */
+
+.section-estilos .box-estilos {
+  width: 100%;
+  display: grid;
+  /* grid-template-columns: repeat(2, auto); */
+  /* grid-template-row: auto repeat(4, 1fr); */
+  padding: 0 15px;
+  gap: var(--gap-small);
+}
+
+.container-img-watch-style {
+  width: 100%;
+  display: grid;
+  grid-template-rows: repeat(4, auto);
+}
+
+.section-estilos .box-estilos .box-img-watch-style {
+  width: 100%;
+  padding: 0px 13px;
+  position: relative;
+}
+
+.box-estilos .box-img-watch-style img {
+  width: 100%;
+  object-fit: cover;
+  border-radius: var(--border-radius-large);
+}
+
+.box-estilos .box-img-watch-style .box-estilo-reloj {
+  width: 100%;
+  padding: 12px;
+}
+
+.box-estilos .box-img-watch-style .box-estilo-reloj h3 {
+  color: var(--color-primary);
+  font-family: var(--font-family-Garamond);
+  text-align: center;
+}
+
+.box-estilos .box-img-watch-style .box-estilo-reloj .info-reloj-estilo p {
+  font-family: var(--font-family-ZillaSlab);
+  font-size: var(--font-medium);
+  color: black;
+  padding: 0 32px;
+  text-align: justify;
+}
+
+/***** Diseño Galeria********/
+
+.img-oculta {
+  display: none !important;
+}
+
+.box-btn-verMas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+#btn-ver-mas {
+  display: none;
+  width: 50;
+  margin: 16px 0;
+  padding: 12px 20px;
+  background-color: var(--color-secondary);
+  color: var(--color-buttons-secondary);
+  border: none;
+  border-radius: var(--border-radius-small);
+  font-family: var(--font-family-ZillaSlab);
+  font-size: var(--font-medium);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+}
+
+#btn-ver-mas:hover {
+  background-color: var(--color-primary);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+/* Create four equal columns that sits next to each other */
+.column {
+  flex: 25%;
+  max-width: 25%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 768px) {
+  .column {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .column {
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+
+/*******************
+* DISEÑO HISTORIA
+* *******************/
+
+.box-tab-vertical-horizontal {
+  display: grid;
+  grid-template-rows: 30% 70%;
+  height: 400px;
+  width: 100%;
+
+  padding: 10px 20px;
+}
+
+.box-tab-vertical-horizontal .tab {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.box-tab-vertical-horizontal .tablinks {
+  width: 100%;
+  text-align: center;
+  font-size: var(--font-medium-small);
+  background-color: var(--color-secondary);
+  color: var(--color-buttons-secondary);
+  font-weight: var(--font-weight-medium);
+  border: 1.5% solid var(--color-buttons-secondary);
+  font-family: var(--font-family-Garamond);
+  cursor: pointer;
+}
+
+.box-tab-vertical-horizontal .tablinks:hover {
+  background-color: var(--color-buttons-secondary);
+  color: var(--color-secondary);
+}
+
+.box-tab-vertical-horizontal .tablinks:active {
+  background-color: var(--color-buttons-secondary-active);
+}
+
+.box-tab-info {
+  margin-top: 5px;
+  height: auto;
+  overflow: hidden; /*Esto hace que cuando se carge la página, no muestre lo que sobre sale*/
+}
+
+.box-tab-info .tabcontent {
+  width: 100%;
+  height: 100%;
+  padding: 22px 0 0 22px;
+}
+
+.box-tab-info .tabcontent h4 {
+  font-family: var(--font-family-Garamond);
+  color: var(--color-titles);
+}
+
+.box-tab-info .tabcontent p {
+  font-family: var(--font-family-ZillaSlab);
+  color: var(--color-buttons-secondary);
+  padding-right: 83px;
+  height: auto;
+}
+
+.box-tab-info #Glashutte {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("./img/bannerGlashutte.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.box-tab-info #AudemarsPiguett {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("./img/bannerAudemars.jpeg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.box-tab-info #Baltic {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("./img/bannerBaltic.jpg");
+  background-size: cover;
+
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.box-tab-info #Venezianico {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("./img/bannerVenezianico.jpg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.box-tab-info #PatekPhilippe {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("./img/bannerPatek.jpeg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.box-tab-info #AV86 {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("./img/bannerAV86.jpeg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.box-tab-info #Mandebrote {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("./img/bannerMandebrote.jpeg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.box-tab-info #Rolex {
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("./img/bannerRolex1.jpeg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/*********************
+*  FOOTER
+*********************/
+
+footer {
+  width: 100%;
+  height: 150px;
+
+  clear: both;
+  background-color: var(--color-primary);
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-content: center;
+}
+
+footer .box-footer-info {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 20px;
+}
+
+footer .box-footer-info h5 {
+  font-weight: bold;
+  font-family: var(--font-family-Garamond);
+  font-size: var(--font-medium);
+  margin-bottom: 23px;
+  text-align: center;
+  color: var(--color-buttons-secondary);
+}
+
+footer .box-footer-info ul {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+footer .box-footer-info li {
+  list-style: none;
+  color: var(--color-buttons-secondary);
+  font-family: var(--font-family-ZillaSlab);
+  font-weight: bold;
+  font-size: var(--font-medium-small);
+}
+
+.box-social-media {
+  display: grid;
+  grid-template-rows: repeat(2, auto);
+  justify-content: center;
+  align-items: center;
+}
+
+.box-social-media h5 {
+  text-align: center;
+  font-size: var(--font-medium);
+  font-family: var(--font-family-Garamond);
+  font-weight: bold;
+  color: var(--color-buttons-secondary);
+}
+
+.box-social-media .box-social-media-icons {
+  display: flex;
+  gap: 25px;
+}
+
+.box-social-media .box-social-media-icons {
+  cursor: pointer;
+  color: var(--color-buttons-secondary);
+  font-size: var(--font-large);
+}
+
+/******************
+* MEDIA QUERIES
+*******************/
+@media (min-width: 767px) {
+  /*** Nuevas variables para esta sección*/
+
+  :root {
+    --font-size-medium: 26px;
+    --font-size-large: 30px;
+  }
+
+  .header-section h2 {
+    font-size: var(--font-size-large);
+  }
+  .header-section p {
+    font-size: var(--font-size-medium);
+    text-align: center;
+  }
+
+  .box-estilos .container-img-watch-style {
+    /* border: 1px solid red; */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-row: repeat(2, 1fr);
+    grid-gap: 12px;
+    align-items: center;
+    justify-content: center;
+    height: 960px;
+    width: 100%;
+    min-width: 0; /* ← nuevo: corrige el overflow a este nivel */
+  }
+
+  .section-estilos .box-estilos {
+    padding: 0;
+  }
+
+  .section-estilos .box-estilos .box-img-watch-style {
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    margin: 0;
+    min-width: 0;
+  }
+
+  .box-estilos .box-img-watch-style img {
+    width: 100%;
+    max-width: 250px;
+    height: 250px;
+    object-fit: cover;
+    padding: 0;
+    display: block;
+    margin: 0 auto;
+    min-width: 0; /* ← extra seguridad: la imagen también es un elemento "reemplazado" con tamaño intrínseco propio (el tamaño real del archivo .jpg) */
+  }
+
+  .box-estilos .box-img-watch-style .box-estilo-reloj {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 40px 0px 40px;
+  }
+
+  .box-estilos .box-img-watch-style .box-estilo-reloj .info-reloj-estilo p {
+    padding: 0 24px 0 24px;
+    text-align: justify;
+    word-wrap: break-word;
+  }
+
+  /***** Historias ****/
+
+  .box-tab-vertical-horizontal .tablinks {
+    font-size: var(--font-medium);
+  }
+
+  .box-tab-info .tabcontent {
+    padding: 32px 0 0 32px;
+  }
+
+  .box-tab-info .tabcontent h4 {
+    font-size: var(--font-large);
+  }
+
+  .box-tab-info .tabcontent p {
+    padding-right: 50%;
+    font-size: var(--font-medium-large);
+  }
+}
