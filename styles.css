@@ -611,3 +611,82 @@ footer .box-footer-info li {
     font-size: var(--font-medium-large);
   }
 }
+
+/**** Diseño responsivo para 992px****/
+@media (min-width: 992px) {
+  header i.fa-bars {
+    display: none;
+  }
+
+  header i.fa-bars-scroll {
+    display: none;
+  }
+  header .box-menu i.fa-x {
+    display: none;
+  }
+
+  header {
+    background-image:
+      linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+      url("./img/baltic1.jpg");
+  }
+
+  header nav .box-menu.sidebar {
+    display: block;
+    position: static;
+    background-color: transparent;
+    width: 100%;
+    height: auto;
+    padding: 0;
+  }
+
+  header nav .box-logo p {
+    padding: 12px 0 5px 0;
+  }
+
+  .box-menu ul {
+    justify-content: center;
+    flex-direction: row;
+  }
+
+  .box-menu ul li .btn-box-menu {
+    font-size: var(--font-size-large);
+    color: var(--color-buttons-secondary);
+    position: relative;
+    padding-bottom: 5px;
+  }
+
+  .box-menu ul li .btn-box-menu::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+
+    bottom: 0;
+    left: 0;
+    background-color: var(--color-buttons-secondary);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+  }
+
+  .box-menu ul li .btn-box-menu:hover {
+    color: var(--color-buttons-secondary);
+    font-weight: bold;
+    background-color: transparent;
+    padding: 0;
+    border-radius: 0;
+  }
+
+  .box-menu ul li .btn-box-menu:active {
+    color: var(--color-secondary);
+  }
+
+  .box-menu ul li .btn-box-menu:hover::after {
+    transform: scaleX(1);
+  }
+
+  .header-section p {
+    text-align: center;
+  }
+}
