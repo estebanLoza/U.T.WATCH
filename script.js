@@ -3,6 +3,8 @@ const hamMenu = document.querySelector(".fa-bars");
 const exitMenu = document.querySelector(".fa-x");
 const boxMenu = document.getElementById("box-menu");
 
+const breakPoint = 992;
+
 // Evento para abrir el menú
 hamMenu.addEventListener("click", function () {
   boxMenu.classList.add("activate");
@@ -12,7 +14,9 @@ hamMenu.addEventListener("click", function () {
 // Evento para cerrar el menú
 exitMenu.addEventListener("click", function () {
   boxMenu.classList.remove("activate");
-  hamMenu.style.display = "flex"; // lo volvemos a mostrar
+  if (window.innerWidth < breakPoint) {
+    hamMenu.style.display = "flex";
+  }
 });
 
 // Evento para cerrar el menú al hacer clic en cualquier opción
@@ -21,7 +25,9 @@ const menuLinks = document.querySelectorAll(".btn-box-menu");
 menuLinks.forEach(function (link) {
   link.addEventListener("click", function () {
     boxMenu.classList.remove("activate");
-    hamMenu.style.display = "flex";
+    if (window.innerWidth < breakPoint) {
+      hamMenu.style.display = "flex";
+    }
   });
 });
 
