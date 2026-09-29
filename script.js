@@ -1,9 +1,11 @@
-// Usamos querySelector indicando el punto (.) de la clase
 const hamMenu = document.querySelector(".fa-bars");
 const exitMenu = document.querySelector(".fa-x");
 const boxMenu = document.getElementById("box-menu");
+const boxMenuNav = document.querySelector(".box-menu.sidebar"); // barra de botones (desktop)
+const menuOffsetTop = boxMenuNav.offsetTop;
 
 const breakPoint = 992;
+const breakpointDesktopNav = 992;
 
 // Evento para abrir el menú
 hamMenu.addEventListener("click", function () {
@@ -32,12 +34,13 @@ menuLinks.forEach(function (link) {
 });
 
 // Ocultar/mostrar el ícono de hamburguesa + cambio de color al deslizar
+// + Ocultar/mostrar la barra de botones de navegación en desktop
 let prevScrollpos = window.pageYOffset;
 
 window.addEventListener("scroll", function () {
   let currentScrollPos = window.pageYOffset;
 
-  // Mostrar u ocultar según dirección del scroll
+  // Mostrar u ocultar según dirección del scroll (ícono hamburguesa, mobile)
   if (prevScrollpos > currentScrollPos) {
     hamMenu.style.top = "20px";
   } else {
@@ -67,6 +70,26 @@ window.addEventListener("scroll", function () {
     // display se queda como está: "flex" (por CSS o por el click)
   }
 
+  // Ocultar/mostrar la barra de botones de navegación (solo en desktop, ≥992px)
+
+  // Ocultar/mostrar + cambiar diseño de la barra de navegación (solo desktop, ≥992px)
+  if (window.innerWidth >= breakpointDesktopNav) {
+    if (currentScrollPos === 0) {
+      // Posición inicial: normal, debajo del logo, transparente
+      boxMenuNav.classList.remove("nav-fixed", "nav-scrolled", "nav-hidden");
+    } else {
+      // Ya hiciste scroll: se despega y se fija arriba
+      boxMenuNav.classList.add("nav-fixed", "nav-scrolled");
+
+      if (prevScrollpos > currentScrollPos) {
+        boxMenuNav.classList.remove("nav-hidden"); // subiendo: aparece
+      } else {
+        boxMenuNav.classList.add("nav-hidden"); // bajando: se oculta
+      }
+    }
+  } else {
+    boxMenuNav.classList.remove("nav-fixed", "nav-scrolled", "nav-hidden");
+  }
   prevScrollpos = currentScrollPos;
 });
 
@@ -173,11 +196,12 @@ function initRevealTiposRelojes() {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           entry.target.classList.add("visible");
-          observer.unobserve(entry.target); // ya no hace falta seguir observándola
+        } else {
+          entry.target.classList.remove("visible"); // se oculta al salir de pantalla
         }
       });
     },
-    { threshold: 0.2 }, // se activa cuando el 20% de la tarjeta es visible
+    { threshold: 0.2 },
   );
 
   tarjetas.forEach((tarjeta) => observer.observe(tarjeta));
