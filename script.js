@@ -97,8 +97,10 @@ function initGaleriaVerMas() {
   const btnVerMas = document.getElementById("btn-ver-mas");
   const maxMobile = 3;
   const maxTablet = 7;
+  const maxLaptop = 9;
   const breakpointMobile = 600;
   const breakpointTablet = 800;
+  const breakpointLaptop = 992;
 
   let expandido = false; // controla en qué estado está el botón
 
@@ -132,7 +134,7 @@ function initGaleriaVerMas() {
     } else if (anchoActual <= breakpointTablet) {
       limite = maxTablet;
     } else {
-      limite = galeriaImgs.length;
+      limite = maxLaptop;
     }
 
     if (galeriaImgs.length > limite) {
@@ -159,3 +161,26 @@ function initGaleriaVerMas() {
 }
 
 initGaleriaVerMas();
+
+// ******* ANIMACIÓN AL HACER SCROLL - Tipos de Relojes (zigzag)
+function initRevealTiposRelojes() {
+  const tarjetas = document.querySelectorAll(
+    ".box-estilos .box-img-watch-style",
+  );
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target); // ya no hace falta seguir observándola
+        }
+      });
+    },
+    { threshold: 0.2 }, // se activa cuando el 20% de la tarjeta es visible
+  );
+
+  tarjetas.forEach((tarjeta) => observer.observe(tarjeta));
+}
+
+initRevealTiposRelojes();
