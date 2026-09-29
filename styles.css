@@ -96,7 +96,7 @@ header nav {
 
 header nav .box-logo p {
   padding: 1em;
-  font-family: var(--font-family-ZillaSlab);
+font-family: var(--font-family-ZillaSlab);
   font-size: var(--font-xlarge);
   color: var(--color-titles);
   font-weight: 900;
@@ -319,12 +319,15 @@ header nav .box-menu.sidebar.activate {
 * DISEÑO HISTORIA
 * *******************/
 
+.history-watch {
+  width: 100%;
+  height: auto;
+}
+
 .box-tab-vertical-horizontal {
   display: grid;
-  grid-template-rows: 30% 70%;
-  height: 400px;
+  grid-template-rows: 1fr auto;
   width: 100%;
-
   padding: 10px 20px;
 }
 
@@ -470,6 +473,7 @@ footer .box-footer-info {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  align-items: center;
   padding: 0 20px;
 }
 
@@ -525,12 +529,43 @@ footer .box-footer-info li {
 /******************
 * MEDIA QUERIES
 *******************/
+
+
+@media (min-width: 360px){
+
+
+  
+  /**** Historia****/
+  .box-tab-vertical-horizontal {
+      padding: 10px;
+  }
+
+  .box-tab-vertical-horizontal .tab {
+    height: 60px;
+  }
+
+  .box-tab-info {
+    height: 8em;
+  }
+
+
+}
+
+
+
+
+
+
+
 @media (min-width: 767px) {
   /*** Nuevas variables para esta sección*/
 
   :root {
     --font-size-medium: 26px;
-    --font-size-large: 30px;
+      x-tab-info {
+        height: 23em;
+      }
+0    --font-size-large: 30px;
   }
 
   .header-section h2 {
@@ -545,7 +580,7 @@ footer .box-footer-info li {
     /* border: 1px solid red; */
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-row: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     grid-gap: 12px;
     align-items: center;
     justify-content: center;
@@ -602,6 +637,14 @@ footer .box-footer-info li {
     padding: 32px 0 0 32px;
   }
 
+  .box-tab-vertical-horizontal .tab {
+    height: 100px;
+  }
+
+  .box-tab-info {
+    height: 23em;
+  }
+
   .box-tab-info .tabcontent h4 {
     font-size: var(--font-large);
   }
@@ -616,7 +659,7 @@ footer .box-footer-info li {
 @media (min-width: 992px) {
   header i.fa-bars {
     display: none;
-  }
+ }
 
   header i.fa-bars-scroll {
     display: none;
@@ -661,7 +704,6 @@ footer .box-footer-info li {
     position: absolute;
     width: 100%;
     height: 2px;
-
     bottom: 0;
     left: 0;
     background-color: var(--color-buttons-secondary);
@@ -686,7 +728,166 @@ footer .box-footer-info li {
     transform: scaleX(1);
   }
 
+  .header-section h2 {
+    font-size :var(--font-large);
+  }
+
   .header-section p {
     text-align: center;
   }
+
+  .box-estilos .container-img-watch-style {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    height: auto;
+  }
+
+  .section-estilos .box-estilos .box-img-watch-style {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    gap: 54px;
+    border-radius: var(--border-radius-large);
+  }
+
+  .box-tab-vertical-horizontal .tab {
+    height: 150px;
+    max-height: 250px;
+  }
+
+  .box-tab-vertical-horizontal .tablinks {
+    font-size: var(--font-medium-large);
+  }
+
+  .box-estilos .box-img-watch-style img {
+    width: 300px;
+  
+    height: 300px;
+    flex-shrink: 0;
+  }
+
+
+  .box-estilos .box-img-watch-style .box-estilo-reloj h3 {
+    font-size: var(--font-xlarge);
+  }
+
+  .box-estilos .box-img-watch-style .box-estilo-reloj .info-reloj-estilo p {
+    font-size: var(--font-large);
+  }
+
+  .box-estilos .box-img-watch-style .info-reloj-estilo {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition:
+      max-height 0.3s ease,
+      opacity 0.3s ease;
+  }
+
+  .box-estilos .box-img-watch-style:hover .info-reloj-estilo {
+    max-height: 200px;
+    opacity: 1;
+  }
+
+  .box-tab-info {
+    height: 23em;
+  }
+
+  .box-tab-info .tabcontent {
+    padding: 83px 0 0 83px;
+  }
+
+  .box-tab-info .tabcontent h4 {
+    font-size: var(--font-xlarge);
+  }
+
+  .box-tab-info .tabcontent p {
+    font-size: var(--font-large);
+    padding-right: 43px;
+  }
 }
+
+/*******************************
+*   
+*   DISEÑO RESPONSIVO 1024px
+*
+*******************************/
+@media (min-width: 1024px) {
+
+  header {
+    height: 40em;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    url("./img/baltic1.jpg");
+
+  }
+
+  .box-menu ul li .btn-box-menu{
+    font-size: var(--font-large);
+  }
+
+
+  .section-estilos .box-estilos .box-img-watch-style{
+    max-width: none;
+  }
+
+
+  .section-estilos .box-estilos .box-img-watch-style:nth-child(odd) {
+    flex-direction: row-reverse;
+  }
+  .section-estilos .box-estilos .box-img-watch-style {
+    max-width: 1100px; /* techo razonable, ajústalo si quieres más grande */
+    overflow: hidden; /* por seguridad extra, evita que algo se desborde */
+    padding: 0 35px;
+  }
+
+  .box-estilos .box-img-watch-style img {
+    flex: 0 0 60%; /* ocupa 60% del ancho de la fila, ni más ni menos */
+    height: 500px; /* fija el alto, pero deja que el ancho sea proporcional */
+    max-width: none;
+    width: auto;
+  }
+  
+  .box-estilos .box-img-watch-style .box-estilo-reloj .info-reloj-estilo p{
+    font-size: var(--font-large);
+    width: 100%;
+    padding: 0px;
+    text-align: justify;
+  }
+
+  .box-estilos .box-img-watch-style .box-estilo-reloj {
+    flex: 1; /* el texto ocupa el 40% restante automáticamente */
+  }
+
+  /* La tarjeta completa: como ya tenías */
+  .box-estilos .box-img-watch-style {
+    opacity: 0;
+    transform: translateY(40px);
+    transition:
+      opacity 0.6s ease,
+      transform 0.6s ease;
+  }
+
+  /* La imagen: su propia animación, con un pequeño retraso */
+  .box-estilos .box-img-watch-style img {
+    opacity: 0;
+    transform: translateY(60px);
+    transition:
+      opacity 0.7s ease 0.15s,
+      transform 0.7s ease 0.15s;
+  }
+
+  /* Cuando JS agregue "visible" al contenedor, TODO dentro también cambia */
+  .box-estilos .box-img-watch-style.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .box-estilos .box-img-watch-style.visible img {
+    opacity: 1;
+    transform: translateY(0);
+  }}
