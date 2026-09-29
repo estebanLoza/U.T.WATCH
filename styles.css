@@ -659,7 +659,7 @@ footer .box-footer-info li {
 @media (min-width: 992px) {
   header i.fa-bars {
     display: none;
- }
+  }
 
   header i.fa-bars-scroll {
     display: none;
@@ -675,15 +675,34 @@ footer .box-footer-info li {
   }
 
   header nav .box-menu.sidebar {
-    display: block;
-    position: static;
-    background-color: transparent;
-    width: 100%;
-    height: auto;
-    padding: 0;
-  }
+  display: block;
+  position: static; /* posición normal: en el flujo, debajo del logo */
+  width: 100%;
+  height: auto;
+  padding: 15px 0;
+  background-color: transparent;
+  transition: background-color 0.1s ease;
+}
 
-  header nav .box-logo p {
+/* Solo cuando ya hiciste scroll (scrollY > 0): se despega y se fija arriba */
+header nav .box-menu.sidebar.nav-fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3000;
+  transform: translateY(0);
+  transition:
+    transform 0.3s ease,
+    background-color 0.3s ease;
+}
+
+header nav .box-menu.sidebar.nav-scrolled {
+  background-color: var(--color-primary);
+}
+
+header nav .box-menu.sidebar.nav-hidden {
+  transform: translateY(-100%);
+}  header nav .box-logo p {
     padding: 12px 0 5px 0;
   }
 
@@ -729,7 +748,7 @@ footer .box-footer-info li {
   }
 
   .header-section h2 {
-    font-size :var(--font-large);
+    font-size: var(--font-large);
   }
 
   .header-section p {
@@ -766,11 +785,9 @@ footer .box-footer-info li {
 
   .box-estilos .box-img-watch-style img {
     width: 300px;
-  
     height: 300px;
     flex-shrink: 0;
   }
-
 
   .box-estilos .box-img-watch-style .box-estilo-reloj h3 {
     font-size: var(--font-xlarge);
@@ -813,36 +830,34 @@ footer .box-footer-info li {
 }
 
 /*******************************
-*   
+*
 *   DISEÑO RESPONSIVO 1024px
 *
 *******************************/
 @media (min-width: 1024px) {
-
   header {
     height: 40em;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-    url("./img/baltic1.jpg");
-
+    background-image:
+      linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+      url("./img/baltic1.jpg");
   }
 
-  .box-menu ul li .btn-box-menu{
+  header nav .box-logo p {
+    font-size: var(--font-xxlarge);
+  }
+
+  .box-menu ul li .btn-box-menu {
     font-size: var(--font-large);
   }
 
-
-  .section-estilos .box-estilos .box-img-watch-style{
-    max-width: none;
-  }
-
-
-  .section-estilos .box-estilos .box-img-watch-style:nth-child(odd) {
-    flex-direction: row-reverse;
-  }
   .section-estilos .box-estilos .box-img-watch-style {
     max-width: 1100px; /* techo razonable, ajústalo si quieres más grande */
     overflow: hidden; /* por seguridad extra, evita que algo se desborde */
     padding: 0 35px;
+  }
+
+  .section-estilos .box-estilos .box-img-watch-style:nth-child(odd) {
+    flex-direction: row-reverse;
   }
 
   .box-estilos .box-img-watch-style img {
@@ -851,8 +866,8 @@ footer .box-footer-info li {
     max-width: none;
     width: auto;
   }
-  
-  .box-estilos .box-img-watch-style .box-estilo-reloj .info-reloj-estilo p{
+
+  .box-estilos .box-img-watch-style .box-estilo-reloj .info-reloj-estilo p {
     font-size: var(--font-large);
     width: 100%;
     padding: 0px;
@@ -890,4 +905,5 @@ footer .box-footer-info li {
   .box-estilos .box-img-watch-style.visible img {
     opacity: 1;
     transform: translateY(0);
-  }}
+  }
+}
