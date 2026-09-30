@@ -906,4 +906,13 @@ header nav .box-menu.sidebar.nav-hidden {
     opacity: 1;
     transform: translateY(0);
   }
+
+  
+
+  .box-tab-info {
+    height: 34em;
+  }
+
+
+
 }
