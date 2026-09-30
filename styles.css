@@ -465,7 +465,7 @@ footer {
   clear: both;
   background-color: var(--color-primary);
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   justify-content: center;
 }
 
@@ -499,6 +499,24 @@ footer .box-footer-info li {
   font-weight: bold;
   font-size: var(--font-medium-small);
 }
+
+
+
+.box-aclaracion{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box-aclaracion p{
+  font-size:var(--font-medium-large);
+  font-weight: var(--font-family-ZillaSlab);
+  color: var(--color-buttons-secondary);
+  font-weight: bold;
+  border-bottom: 1px solid var(--color-buttons-secondary);
+}
+
+
 
 .box-social-media {
   display: grid;
@@ -907,7 +925,7 @@ header nav .box-menu.sidebar.nav-hidden {
     transform: translateY(0);
   }
 
-  
+
 
   .box-tab-info {
     height: 34em;
