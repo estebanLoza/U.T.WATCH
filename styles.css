@@ -96,7 +96,7 @@ header nav {
 
 header nav .box-logo p {
   padding: 1em;
-font-family: var(--font-family-ZillaSlab);
+  font-family: var(--font-family-ZillaSlab);
   font-size: var(--font-xlarge);
   color: var(--color-titles);
   font-weight: 900;
@@ -113,11 +113,14 @@ header nav .box-menu.sidebar {
   transition: 0.3s;
   padding-top: 22px;
   padding-left: 25px;
-  display: none;
+  /* display: none; */
+  transform: translateX(-100%);
+  transition: 0.3s ease;
 }
 
 header nav .box-menu.sidebar.activate {
   display: block;
+  transform: translateX(0%);
 }
 
 .box-menu.activate-box-menu {
@@ -500,23 +503,19 @@ footer .box-footer-info li {
   font-size: var(--font-medium-small);
 }
 
-
-
-.box-aclaracion{
-  display:flex;
+.box-aclaracion {
+  display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.box-aclaracion p{
-  font-size:var(--font-medium-large);
+.box-aclaracion p {
+  font-size: var(--font-medium-large);
   font-weight: var(--font-family-ZillaSlab);
   color: var(--color-buttons-secondary);
   font-weight: bold;
   border-bottom: 1px solid var(--color-buttons-secondary);
 }
-
-
 
 .box-social-media {
   display: grid;
@@ -548,14 +547,10 @@ footer .box-footer-info li {
 * MEDIA QUERIES
 *******************/
 
-
-@media (min-width: 360px){
-
-
-  
+@media (min-width: 360px) {
   /**** Historia****/
   .box-tab-vertical-horizontal {
-      padding: 10px;
+    padding: 10px;
   }
 
   .box-tab-vertical-horizontal .tab {
@@ -565,25 +560,17 @@ footer .box-footer-info li {
   .box-tab-info {
     height: 8em;
   }
-
-
 }
-
-
-
-
-
-
 
 @media (min-width: 767px) {
   /*** Nuevas variables para esta sección*/
 
   :root {
     --font-size-medium: 26px;
-      x-tab-info {
-        height: 23em;
-      }
-0    --font-size-large: 30px;
+    x-tab-info {
+      height: 23em;
+    }
+    --font-size-large: 30px;
   }
 
   .header-section h2 {
@@ -693,34 +680,35 @@ footer .box-footer-info li {
   }
 
   header nav .box-menu.sidebar {
-  display: block;
-  position: static; /* posición normal: en el flujo, debajo del logo */
-  width: 100%;
-  height: auto;
-  padding: 15px 0;
-  background-color: transparent;
-  transition: background-color 0.1s ease;
-}
+    display: block;
+    position: static; /* posición normal: en el flujo, debajo del logo */
+    width: 100%;
+    height: auto;
+    padding: 15px 0;
+    background-color: transparent;
+    transition: background-color 0.1s ease;
+  }
 
-/* Solo cuando ya hiciste scroll (scrollY > 0): se despega y se fija arriba */
-header nav .box-menu.sidebar.nav-fixed {
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 3000;
-  transform: translateY(0);
-  transition:
-    transform 0.3s ease,
-    background-color 0.3s ease;
-}
+  /* Solo cuando ya hiciste scroll (scrollY > 0): se despega y se fija arriba */
+  header nav .box-menu.sidebar.nav-fixed {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 3000;
+    transform: translateY(0);
+    transition:
+      transform 0.3s ease,
+      background-color 0.3s ease;
+  }
 
-header nav .box-menu.sidebar.nav-scrolled {
-  background-color: var(--color-primary);
-}
+  header nav .box-menu.sidebar.nav-scrolled {
+    background-color: var(--color-primary);
+  }
 
-header nav .box-menu.sidebar.nav-hidden {
-  transform: translateY(-100%);
-}  header nav .box-logo p {
+  header nav .box-menu.sidebar.nav-hidden {
+    transform: translateY(-100%);
+  }
+  header nav .box-logo p {
     padding: 12px 0 5px 0;
   }
 
@@ -925,12 +913,7 @@ header nav .box-menu.sidebar.nav-hidden {
     transform: translateY(0);
   }
 
-
-
   .box-tab-info {
     height: 34em;
   }
-
-
-
 }
